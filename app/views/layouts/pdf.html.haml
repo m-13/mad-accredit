@@ -1,0 +1,13 @@
+!!!
+
+%html
+  %head
+    %meta{ charset: 'utf-8' }
+    %title
+      Volunteer Certificat    
+  = wicked_pdf_stylesheet_link_tag 'certificate.css'
+  = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto+Condensed'
+  - background = 'background.jpg'
+  %body{ style: "height: 400px; width: 500px; background-image: url('#{wicked_pdf_asset_base64(background)}'); background-position: center center; background-size: cover;" }
+    = yield
+  

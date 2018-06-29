@@ -1,0 +1,33 @@
+.header.py-4
+  .container
+    .d-flex
+      .header-brand
+        MAD-ACCREDIT
+      .d-flex.order-lg-2.ml-auto
+        .dropdown.d-none.d-md-flex
+          %a.nav-link.icon
+            - if notifications?
+              %i.fe.fe-bell
+              -if unread_notifications?
+                %span.nav-unread
+            - else 
+              %i.fe.fe-bell-off
+        - if current_user.present?
+          .dropdown.show
+            %a.nav-link.pr-0.leading-none{ data: { toggle: 'dropdown'}, aria: { expanded: true } }
+              %span.avatar
+                = current_user.user_type.first.upcase
+              %span.ml-2.d-none.d-lg-block
+                %span.text-default
+                  = current_user.name
+                %span.text-muted.d-block.mt-1
+                  = 'Admin'
+          = form_with scope: :user, url: logout_path, method: :post do |f| 
+            = f.submit 'Logout', class: 'btn btn-danger float-right'
+        - else
+          
+
+
+        
+      
+          

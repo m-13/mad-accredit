@@ -1,0 +1,34 @@
+default: &default
+  encoding: utf8
+  adapter: mysql2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+development:
+  <<: *default
+  database: makeadiff_madapp
+  url: <%= ENV['MADAPP_DB_URL'] %>
+  username: <%= ENV['MADAPP_DB_USERNAME'] %>
+  password: <%= ENV['MADAPP_DB_PASSWORD'] %>
+  host:  makeadiff.in
+  port: 3306
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: makeadiff_madapp_test
+  socket: /var/run/mysqld/mysqld.sock
+  username: root
+  password: 
+
+
+production:
+  <<: *default
+  database: makeadiff_madapp
+  url: <%= ENV['MADAPP_DB_URL'] %>
+  username: <%= ENV['MADAPP_DB_USERNAME'] %>
+  password: <%= ENV['MADAPP_DB_PASSWORD'] %>
+  host:  makeadiff.in
+  port: 3306

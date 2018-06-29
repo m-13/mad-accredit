@@ -1,0 +1,16 @@
+.page-single
+  .row
+    .col.col-login.mx-auto
+      .card{ method: :post }
+        .card-body.p-6
+          .card-title
+            Log in to your account
+          = form_with scope: :user, url: login_path, method: :post do |f|
+            .form-group
+              = f.label 'Email address', for: :email, class: 'form-label'
+              = f.email_field :email, class: 'form-control', placeholder: 'Enter email'
+            .form-group
+              = f.label 'Password', for: :password, class: 'form-label'
+              = f.password_field :password, class: 'form-control', placeholder: 'Password'
+            .form-footer
+              = f.submit 'Login', class: 'btn btn-primary btn-block'

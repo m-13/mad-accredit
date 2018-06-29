@@ -1,0 +1,26 @@
+= form_with model: template, class: 'card' do |f|
+  .card-body
+    .container
+      .row
+        .card-title
+          Template Data
+        .btn-list.ml-auto
+          = f.submit method: :post, class: 'btn btn-primary btn-space ' do 
+            Save 
+    %fieldset.form-fieldset
+      .row
+        .col-4
+          .form-group
+            = f.label :name, class: 'form-label'
+            = f.text_field :name, class: 'form-control', value: template.name
+      .row
+        .col-12
+          .form-group
+            = f.label :haml, class: 'form-label'
+            = f.text_area :html, class: 'form-control', rows: 10, cols: 20, value: template.html
+            = f.hidden_field :engine, value: 'haml'
+      .row
+        .col-12
+          .form-group
+            = f.label :css, class: 'form-label'
+            = f.text_area :css, class: 'form-control', rows: 10, cols: 20, value: template.css

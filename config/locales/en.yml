@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: 'Accredit'
+  auth:
+    error:
+      email: 'Invalid email/password'
+      password: 'Invalid email/password'
+    success:
+      user: 'User authenticated via madapp'

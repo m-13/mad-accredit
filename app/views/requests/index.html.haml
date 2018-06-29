@@ -1,0 +1,26 @@
+= content_for :title do
+  %h4 Documents
+
+.col-sm-6.col-md-8
+  .card
+    .card-header
+      Available Documents
+      = link_to new_template_path, class: 'btn btn-sm btn-pill btn-secondary ml-auto' do
+        %i.fe.fe-plus
+    %table.table.card-table
+      %tbody
+        - @requests.each do |request|
+          %tr
+            %td
+              %i.fe.fe-arrow-right.text-muted
+            %td
+              = request.document
+            %td.btn-list.text-right
+              = link_to request_download_url(request.id, format: :pdf),
+                        class: 'btn btn-info btn-pill btn-space' do
+                %i.fe.fe-download
+                Download
+              = link_to request_mail_url(request.id),
+                        class: 'btn btn-info btn-pill btn-space' do 
+                %i.fe.fe-mail
+                Email

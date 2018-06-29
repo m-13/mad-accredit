@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{ charset: 'utf-8' }
+    = render 'templates/style', { template: template }
+    %title
+      Volunteer Certificate  
+  %body{ class: 'A5 landscape' }
+    .sheet.background
+      = render inline: template.html, type: template.engine, layout: false, locals: { data: data }
+        

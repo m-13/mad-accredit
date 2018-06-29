@@ -1,0 +1,30 @@
+= content_for :title do
+  %h4 Templates
+
+.col-sm-6.col-md-8
+  .card
+    .card-header
+      Available Templates
+      = link_to new_template_path, class: 'btn btn-sm btn-pill btn-secondary ml-auto' do
+        %i.fe.fe-plus
+    %table.table.card-table
+      %tbody
+        - @templates.each do |template|
+          %tr
+            %td
+              %i.fe.fe-arrow-right.text-muted
+            %td
+              = template.name
+            %td.btn-list.text-right
+              = link_to edit_template_path(template), class: 'btn btn-pill btn-secondary' do
+                %i.fe.fe-edit 
+                Edit
+              = link_to template_preview_url(template.id, format: :pdf),
+                        class: 'btn btn-info btn-pill btn-space' do
+                %i.fe.fe-download
+                Download
+              = link_to template_preview_url(template.id, format: :html),
+                        target: :_blank,
+                        class: 'btn btn-success btn-pill btn-space' do 
+                HTML
+

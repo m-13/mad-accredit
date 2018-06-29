@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag 'paper' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Roboto+Condensed' %>
+<style>
+@page { size: A5 landscape }
+@media screen {
+  .background {
+    background-image: url('data:image/jpeg;base64,<%= safe_base64(template.body_bg_img)%>');
+    background-position: center;
+    background-attachment: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+@media print {
+  body {
+    background-image: url('data:image/jpeg;base64,<%= safe_base64(template.body_bg_img)%>');
+    background-position: inherit;
+    background-attachment: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+<%= render inline: template.css, type: 'css' %>
+</style>
+    
