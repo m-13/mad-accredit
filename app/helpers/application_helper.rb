@@ -1,4 +1,6 @@
-module ApplicationHelper
+# frozen_string_literal: true
+
+module ApplicationHelper #:nodoc:
 
   def display_flash(key, value)
     render partial: 'layouts/flash', locals: { key: key, value: value }
@@ -15,11 +17,11 @@ module ApplicationHelper
   end
 
   def initials(name)
-    name.split.map { |word| word.first }.join
+    name.split.map(&:first).join
   end
 
   def current_user
-    @_current_user ||= User.find_by(id: session[:user])
+    @current_user ||= User.find_by(id: session[:user])
   end
 
   def safe_base64(data)

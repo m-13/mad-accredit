@@ -8,10 +8,11 @@ class RequestsController < ApplicationController
   def download
     respond_to do |format|
       format.pdf do
-        @document = Document::PDF.call(template: @request.template, data: @request.data).data 
+        @document = Document::PDF.call(template: @request.template,
+                                       data: @request.data).data
         send_data @document,
                   filename: "#{@request.template.name}.pdf",
-                  type: 'application/pdf' 
+                  type: 'application/pdf'
       end
     end
   end
@@ -22,11 +23,12 @@ class RequestsController < ApplicationController
     redirect_to requests_path
   end
 
-  private 
+  private
 
   def set_request
     request_id = params[:id] || params[:request_id]
     @request = Request.find_by(id: request_id)
+    #
     unless @request.present?
       flash.now[:notice] = 'Request not found'
       redirect_back(fallback_location: root_path)
