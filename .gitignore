@@ -7,6 +7,10 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore rubymine config 
+.idea
+/.idea/.keep
+/.idea/*
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

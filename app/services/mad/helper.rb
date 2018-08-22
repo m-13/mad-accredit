@@ -1,4 +1,7 @@
-class MAD::Helper 
+# frozen_string_literal: true
+
+#:nodoc:
+class MAD::Helper
   def self.primary_role(string)
     return nil if string.blank?
     role = string.split(',').first
@@ -30,14 +33,14 @@ class MAD::Helper
   def self.create_requests(csv, city)
     csv.each do |row|
       Request.create(user_id: row['Volunteer ID'],
-                      document: 'Certificate 2017-2018',
-                      status: row['HC fellow approval'].eql?('Eligible') ? 'approved' : 'rejected',
-                      template_id: 1,
-                      data: { name: row['Name'],
-                              city: city,
-                              primary_role: MAD::Helper.primary_role(row['Role']),
-                              additional_roles: MAD::Helper.additional_roles(row['Role']),
-                            email: row['Email']})
+                     document: 'Certificate 2017-2018',
+                     status: row['HC fellow approval'].eql?('Eligible') ? 'approved' : 'rejected',
+                     template_id: 1,
+                     data: { name: row['Name'],
+                             city: city,
+                             primary_role: MAD::Helper.primary_role(row['Role']),
+                             additional_roles: MAD::Helper.additional_roles(row['Role']),
+                             email: row['Email'] })
     end
   end
 

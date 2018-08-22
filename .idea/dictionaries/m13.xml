@@ -1,12 +1,15 @@
 <component name="ProjectDictionaryState">
   <dictionary name="m13">
     <words>
+      <w>authenticable</w>
       <w>bcrypt</w>
       <w>bootsnap</w>
       <w>byebug</w>
       <w>googleauth</w>
+      <w>madapp</w>
       <w>rubocop</w>
       <w>sendgrid</w>
+      <w>strat</w>
       <w>tabler</w>
       <w>turbolinks</w>
       <w>uglifier</w>
